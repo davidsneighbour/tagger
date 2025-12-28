@@ -1,6 +1,11 @@
-# Tagger: blog hashtag generator
+# Tagger -- a quick blog front matter tag generator
 
-This folder contains a deterministic tagger for Markdown posts. It generates frontmatter `hashtags` from post content and appends them without deleting anything.
+This is a deterministic tagger for Markdown posts, generating and extending front matter `tags` from post content.
+
+## Requirements
+
+- Node v24+
+- any static website generating system that is based on Markdown files with front matter in YAML (currently only YAML is supported).
 
 ## Behaviour
 
