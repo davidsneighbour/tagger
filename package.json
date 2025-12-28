@@ -1,0 +1,33 @@
+{
+  "name": "@davidsneighbour/tagger",
+  "version": "0.1.0",
+  "description": "Deterministic hashtag generator for Markdown posts with YAML frontmatter",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "tagger": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.3",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

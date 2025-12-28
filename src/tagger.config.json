@@ -1,0 +1,22 @@
+{
+  "contentDir": "src/content/blog",
+  "contentGlob": null,
+  "min": 3,
+  "max": 12,
+  "denylist": [
+    "misc",
+    "general",
+    "notes",
+    "stuff",
+    "random",
+    "test-*"
+  ],
+  "denylistMode": "glob",
+  "cacheFile": "src/scripts/tagger/.hashtags-cache.json",
+  "cacheSimilarityThreshold": 0.6,
+  "verboseRemapLimit": 25,
+  "warningSuggestionLimit": 10,
+  "candidateLimit": 500,
+  "keywordLimit": 30,
+  "extraWordScanLimit": 300
+}
