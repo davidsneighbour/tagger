@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { runTagger } from './tagger.js';
+import { runTagger } from './cli.js';
 
 /**
  * Run tagger with argv array (already stripped of node + script path).

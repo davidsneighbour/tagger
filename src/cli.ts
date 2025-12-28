@@ -585,9 +585,9 @@ async function processFile(
   const bodyNoCode = stripCodeBlocks(parsed.content);
   const keywordCandidates = topKeywords(bodyNoCode, conf.keywordLimit);
 
-  const rawCandidates = uniqueStable<string>([title, ...headings, ...tagCandidates, ...keywordCandidates]).slice(0, conf.candidateLimit);
+  const rawCandidates = uniqueStable([title, ...headings, ...tagCandidates, ...keywordCandidates]).slice(0, conf.candidateLimit);
 
-  const generatedAll = uniqueStable<string>(
+  const generatedAll = uniqueStable(
     rawCandidates.map((c) => slugifyHashtag(c)).filter((x): x is string => typeof x === 'string')
   );
 
@@ -602,13 +602,13 @@ async function processFile(
 
   const mappedNew = mappedDetails.map((d) => d.mapped);
 
-  const combined = uniqueStable<string>([...existingHashtags, ...mappedNew]).slice(0, conf.max);
+  const combined = uniqueStable([...existingHashtags, ...mappedNew]).slice(0, conf.max);
 
   const existingSet = new Set(existingHashtags);
   const added = combined.filter((h) => !existingSet.has(h));
 
   const finalSet = new Set(combined);
-  const suggestions = uniqueStable<string>(
+  const suggestions = uniqueStable(
     generatedAll.filter((h) => !finalSet.has(h)).slice(0, conf.warningSuggestionLimit)
   );
 
@@ -694,7 +694,7 @@ export async function runTagger(argv: string[]): Promise<void> {
     }
   }
 
-  const mergedCache = uniqueStable<string>([...cacheHashtags, ...newlyAddedToCache]).sort((a, b) => a.localeCompare(b));
+  const mergedCache = uniqueStable([...cacheHashtags, ...newlyAddedToCache]).sort((a, b) => a.localeCompare(b));
   if (mergedCache.length !== cacheHashtags.length) {
     const updated: CacheFile = { version: 1, updatedAt: new Date().toISOString(), hashtags: mergedCache };
     if (!cfg.dryRun) await writeJsonFile(conf.cacheFile, updated);
